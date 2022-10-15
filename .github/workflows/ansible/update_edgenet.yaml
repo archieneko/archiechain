@@ -1,0 +1,68 @@
+---
+-
+  name: Update Archie Chain binary
+  hosts:
+    - all
+  become: yes
+  tasks:
+    ## update & upgrade system
+    - name: Update & upgrade system
+      apt:
+        upgrade: yes
+        update_cache: yes
+
+    ## stop archie service
+    - name: Stop Archie Chain service
+      systemd:
+        state: stopped
+        name: archie
+
+    ## get the latest release
+    - name: Get latest release link
+      uri:
+        url: https://api.github.com/repos/archieneko/archiechain/releases/latest
+        return_content: true
+      register: edge_release
+
+    ## download the latest release
+    - name: Download latest Archie Chain release
+      get_url:
+        url: "{{ edge_release.json.assets[3].browser_download_url }}"
+        dest: /tmp/archie.tar.gz
+        force: yes
+
+    ## create temp dir for release
+    - name: Create temp dir for Archie Chain release
+      file:
+        path: /tmp/archie
+        state: directory
+
+    ## unpack release tar
+    - name: Unpack Archie Chain release
+      unarchive:
+        remote_src: yes
+        src: /tmp/archie.tar.gz
+        dest: /tmp/archie
+
+    ## set archie to PATH
+    - name: Place Archie Chain binary to PATH
+      copy:
+        remote_src: yes
+        src: /tmp/archie/archie
+        dest: /usr/local/bin/
+        mode: a+x
+        force: yes
+
+    ## remove release temp dir
+    - name: Remove temp Archie Chain release dir
+      file:
+        state: absent
+        path: /tmp/archie
+
+    ## start Archie Chain service
+    - name: Start archie service
+      systemd:
+        state: restarted
+        name: archie
+        daemon_reload: yes
+        enabled: yes
