@@ -17,6 +17,7 @@ jobs:
     uses: archieneko/archiechain/.github/workflows/security.yml@develop
     secrets:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      SNYK_ORG: ${{ secrets.SNYK_ORG }}
 
   build:
     uses: archieneko/archiechain/.github/workflows/build.yml@develop
