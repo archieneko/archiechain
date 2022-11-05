@@ -55,22 +55,19 @@ go version go1.18.7 linux/amd64
 git clone https://github.com/archieneko/archiechain.git
 cd archiechain/
 go build -o archie main.go
+mkdir ~/.archiechain
 ```
 
 #### Running a Full Validating Node
-After you have [downloaded](https://github.com/archieneko/archiechain/releases/latest) the binaries or [built from source](https://github.com/archieneko/archiechain#build-from-source), enter the `archiechain` directory and run the following:
+After you have [downloaded](https://github.com/archieneko/archiechain/releases/latest) the binaries or [built from source](https://github.com/archieneko/archiechain#build-from-source), follow [this guide](ValidatorGuide.md) to setup your validator.
+
+#### Running a non-Validating node
 ```
 mkdir ~/.archiechain
 ```
 ```
-./archie server --data-dir ~/.archiechain --chain mainnet-genesis.json --seal --max-slots 40960 --grpc 0.0.0.0:9632 --libp2p 0.0.0.0:1478 --jsonrpc 0.0.0.0:8545 --max-inbound-peers 128 --max-outbound-peers 16
-```
-
-#### Running a non-Validating node
-```
 ./archie server --data-dir ~/.archiechain --chain mainnet-genesis.json --libp2p 0.0.0.0:1478 --nat <public_or_private_ip>
 ```
-
 
 ---
 ```
