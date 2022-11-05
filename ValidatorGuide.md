@@ -68,7 +68,7 @@ npm run info
 
 When you are done staking and want to un-stake, run this command:
 ```
-npm run info
+npm run unstake-test
 ```
 
 ## Part 4 - Start Your Validator
