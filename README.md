@@ -1,4 +1,5 @@
-## ArchieChain
+## Archie Chain
+* Network Name - ArchieChain
 * Coin Name - ARC
 * Coin Symbol - ARC
 * Supply - 10 billion
