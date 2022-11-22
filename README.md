@@ -1,6 +1,6 @@
-## Archie Chain
-* Name - Archie Chain
-* Symbol - ARCHIE
+## ArchieChain
+* Coin Name - ARC
+* Coin Symbol - ARC
 * Supply - 10 billion
 * Blocktime - 2 Seconds
 * Consensus - PoS
