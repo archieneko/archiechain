@@ -13,7 +13,7 @@
 
 ## Official Links
 * Website - https://archiechain.io
-* Mainnet Explorer - https://archiescan.io
+* Mainnet Explorer - https://app.archiescan.io
 * Testnet Explorer - https://testnet.archiescan.io
 * Mainnet RPC 1 - https://rpc-main-1.archiechain.io
 * Mainnet RPC 2 - https://rpc-main-2.archiechain.io
