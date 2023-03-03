@@ -23,7 +23,7 @@
 
 
 ## Getting Started
-You can follow the guides below to build ArchieChain from source and run an ARC node. If you want to run a validating node and stake ARC, follow [this guide](ValidatorGuide.md).
+You can follow the guides below to build ArchieChain from source and run an ARC node. If you want to run a validating node and stake ARC, follow **[this guide](ValidatorGuide.md)**.
 
 ## Build from Source (Ubuntu 20.04)
 Requirements - `Go >=1.18.x`
@@ -70,8 +70,6 @@ mkdir ~/.archiechain
 Now run the following to start your node. Replace `<public_or_private_ip>` with your server's external IP address
 ```
 ./archie server --data-dir ~/.archiechain --chain mainnet-genesis.json --libp2p 0.0.0.0:1478 --nat <public_or_private_ip>
-
-
 ```
 
 ---
