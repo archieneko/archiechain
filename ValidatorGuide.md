@@ -36,7 +36,42 @@ Hit enter, then paste in the server's password and hit enter.
 Once you were able to login, you can proceed. 
 
 ## Part 1 - Build from Source (Ubuntu 20.04)
-Follow [this guide](https://github.com/archieneko/archiechain/blob/main/README.md#build-from-source-ubuntu-2004) to download and compile the binaries for ARC. 
+Requirements - `Go >=1.18.x`
+
+### Setup Go Path
+```
+sudo nano ~/.profile
+```
+Paste this into the bottom of the file
+```
+export GOPATH=$HOME/work
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+```
+```
+source ~/.profile
+```
+
+### Install Go
+```
+wget https://go.dev/dl/go1.18.7.linux-amd64.tar.gz
+sudo tar -xvf go1.18.7.linux-amd64.tar.gz
+sudo mv go /usr/local && rm go1.18.7.linux-amd64.tar.gz
+```
+Check that it's installed
+```
+go version
+```
+You should see something like this:
+```
+go version go1.18.7 linux/amd64
+```
+
+### Build archiechain
+```
+git clone https://github.com/archieneko/archiechain.git
+cd archiechain/
+go build -o archie main.go
+``` 
 
 ## Part 2 - Generate Validator Keys
 After you finish `Part 1`, Create a directory to store your keys and testnet blockchain data on the VPS server. 

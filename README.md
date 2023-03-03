@@ -17,13 +17,18 @@
 * Testnet Explorer - https://testnet.archiescan.io
 * Mainnet RPC 1 - https://rpc-main-1.archiechain.io
 * Mainnet RPC 2 - https://rpc-main-2.archiechain.io
+* Mainnet RPC 3 - https://rpc-main-3.archiechain.io
 * Testnet RPC 1 - https://rpc-test-1.archiechain.io
 * Testnet RPC 2 - https://rpc-test-2.archiechain.io
 
-### Build from Source (Ubuntu 20.04)
+
+## Getting Started
+You can follow the guides below to build ArchieChain from source and run an ARC node. If you want to run a validating node and stake ARC, follow [this guide](ValidatorGuide.md).
+
+## Build from Source (Ubuntu 20.04)
 Requirements - `Go >=1.18.x`
 
-#### Setup Go Path
+### Setup Go Path
 ```
 sudo nano ~/.profile
 ```
@@ -36,7 +41,7 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 source ~/.profile
 ```
 
-#### Install Go
+### Install Go
 ```
 wget https://go.dev/dl/go1.18.7.linux-amd64.tar.gz
 sudo tar -xvf go1.18.7.linux-amd64.tar.gz
@@ -51,28 +56,27 @@ You should see something like this:
 go version go1.18.7 linux/amd64
 ```
 
-#### Build archiechain
+### Build archiechain
 ```
 git clone https://github.com/archieneko/archiechain.git
 cd archiechain/
 go build -o archie main.go
-mkdir ~/.archiechain
 ```
 
-#### Running a Full Validating Node
-After you have [downloaded](https://github.com/archieneko/archiechain/releases/latest) the binaries or [built from source](https://github.com/archieneko/archiechain#build-from-source), follow [this guide](ValidatorGuide.md) to setup your validator.
-
-#### Running a non-Validating node
+## Running a ArchieChain node (non-validating)
 ```
 mkdir ~/.archiechain
 ```
+Now run the following to start your node. Replace `<public_or_private_ip>` with your server's external IP address
 ```
 ./archie server --data-dir ~/.archiechain --chain mainnet-genesis.json --libp2p 0.0.0.0:1478 --nat <public_or_private_ip>
+
+
 ```
 
 ---
 ```
-Copyright 2022 Archie Chain
+Copyright 2022-2023 Archie Chain
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
