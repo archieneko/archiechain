@@ -76,13 +76,13 @@ go build -o archie main.go
 ## Part 2 - Generate Validator Keys
 After you finish `Part 1`, Create a directory to store your keys and testnet blockchain data on the VPS server. 
 ```
-mkdir ~/.archietest
+mkdir ~/.archiechain
 cd ~/archiechain
 ```
 
 Now run this command to generate your validator keys
 ```
-./archie secrets init  --data-dir ~/.archietest
+./archie secrets init  --data-dir ~/.archiechain
 ```
 
 You should see something like this:
@@ -112,12 +112,12 @@ PRIVATE_KEYS=YOUR_VALIDATOR_PRIVATE_KEY_HERE
 
 The `YOUR_VALIDATOR_PRIVATE_KEY_HERE` variable can be found in this file: 
 ```
-~/.archietest/consensus/validator.key
+~/.archiechain/consensus/validator.key
 ```
 
 You can view it like so
 ```
-cat ~/.archietest/consensus/validator.key
+cat ~/.archiechain/consensus/validator.key
 ```
 
 Save the key in the `.env` file and continue on
@@ -131,20 +131,20 @@ Public key (address) = 0xXXXXX...
 ### Stake to become a validator
 Once you have completed the steps above, run the following:
 ```
-npm run stake-test
+npm run stake
 ```
 
 It run run a few seconds until the transaction confirms.
 
 When you are done staking and want to un-stake, run this command:
 ```
-npm run unstake-test
+npm run unstake
 ```
 
 ## Part 4 - Start Your Validator
 Run the following to start your validator. Replace `YOUR_SERVER_IP` with your server's public IP address
 ```
-./archie server --data-dir ~/.archietest --chain testnet-genesis.json --libp2p 0.0.0.0:1478 --nat YOUR_SERVER_IP --seal
+./archie server --data-dir ~/.archiechain --chain mainnet-genesis.json --grpc 0.0.0.0:9632 --libp2p 0.0.0.0:1478 --jsonrpc 0.0.0.0:8545 --seal
 ```
 
 Once you run that, your validator will start syncing with the testnet blockchain and begin validating. 
